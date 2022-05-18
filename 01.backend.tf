@@ -1,7 +1,7 @@
 terraform {
   backend "local" {
     path = "C:/Users/김햄무/Desktop/terraform/Aws/@init_network/terraform.tfstate"
-  } # backend 변경 전 destroy 권장함
+  } # backend 변경 전 destroy 권장
 } 
 
 /* terraform {
