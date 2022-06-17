@@ -1,6 +1,6 @@
 resource "aws_eip" "nat_ip" {
     tags = {
-    Name = "NAT_ip"
+    Name = "NAT_ip-minwook"
   }
 }
 resource "aws_nat_gateway" "nat" {
@@ -8,7 +8,7 @@ resource "aws_nat_gateway" "nat" {
   subnet_id     = aws_subnet.pub1.id
 
   tags = {
-    Name = "NAT_ham"
+    Name = "NAT_minwook"
   }
 
   # To ensure proper ordering, it is recommended to add an explicit dependency
