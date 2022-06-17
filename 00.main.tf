@@ -1,4 +1,5 @@
 # git remote show
+# git init
 # git add -p <file>
 # git commit -m "<message>"
 # git push <remote>
