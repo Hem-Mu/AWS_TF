@@ -22,6 +22,9 @@ resource "aws_route_table_association" "a2" {
   subnet_id      = aws_subnet.pub2.id
   route_table_id = aws_route_table.RT_igw.id
 } # igw associate
-output "RT_as_a_id" {
-     value = "${aws_route_table_association.a.id}"
-   }
+output "RT_as_a1_id" {
+     value = "${aws_route_table_association.a1.id}"
+      }
+output "RT_as_a2_id" {
+     value = "${aws_route_table_association.a2.id}"
+     }

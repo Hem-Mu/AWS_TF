@@ -22,6 +22,9 @@ resource "aws_route_table_association" "b2" {
   subnet_id      = aws_subnet.pri2.id
   route_table_id = aws_route_table.RT_nat.id
 } # nat associate
-output "RT_as_b_id" {
-     value = "${aws_route_table_association.b.id}"
+output "RT_as_b1_id" {
+     value = "${aws_route_table_association.b1.id}"
+   }
+output "RT_as_b2_id" {
+     value = "${aws_route_table_association.b2.id}"
    }
