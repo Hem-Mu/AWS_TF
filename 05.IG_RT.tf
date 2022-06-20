@@ -7,7 +7,7 @@ resource "aws_route_table" "RT_igw" {
   }
 
   tags = {
-    Name = "minwook-Pub-IGW"
+    Name = "minwook-pub-rt"
   }
 }
 output "RT_igw_id" {
@@ -22,6 +22,7 @@ resource "aws_route_table_association" "a2" {
   subnet_id      = aws_subnet.pub2.id
   route_table_id = aws_route_table.RT_igw.id
 } # igw associate
+
 output "RT_as_a1_id" {
      value = "${aws_route_table_association.a1.id}"
       }

@@ -1,6 +1,6 @@
 resource "aws_eip" "nat_ip" {
     tags = {
-    Name = "NAT_ip-minwook"
+    Name = "minwook-NAT_ip"
   }
 }
 resource "aws_nat_gateway" "nat" {

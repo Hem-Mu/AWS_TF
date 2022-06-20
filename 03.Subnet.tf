@@ -54,5 +54,5 @@ output "pri1_id" {
     value = "${aws_subnet.pri1.id}"
   }
 output "pri2_id" {
-    value = "${aws_subnet.pri1.id}"
+    value = "${aws_subnet.pri2.id}"
   }
