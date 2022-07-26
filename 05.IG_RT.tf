@@ -7,7 +7,7 @@ resource "aws_route_table" "RT_igw" {
   }
 
   tags = {
-    Name = "minwook-pub-rt"
+    Name = "hamster-pub-rt"
   }
 }
 output "RT_igw_id" {
@@ -15,13 +15,13 @@ output "RT_igw_id" {
   }
   
 resource "aws_route_table_association" "a1" {
-  subnet_id      = aws_subnet.pub1.id
+  subnet_id      = aws_subnet.pub[0].id #pub1
   route_table_id = aws_route_table.RT_igw.id
-} # igw associate
+} # pub1 igw associate
 resource "aws_route_table_association" "a2" {
-  subnet_id      = aws_subnet.pub2.id
+  subnet_id      = aws_subnet.pub[1].id #pub2
   route_table_id = aws_route_table.RT_igw.id
-} # igw associate
+} # pub2 igw associate
 
 output "RT_as_a1_id" {
      value = "${aws_route_table_association.a1.id}"

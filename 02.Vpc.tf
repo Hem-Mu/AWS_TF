@@ -1,6 +1,6 @@
 resource "aws_vpc" "ham-vpc" {
   tags = {
-    Name = "minwook-vpc"
+    Name = "hamster-vpc"
   }
   cidr_block = "10.177.0.0/16"
 }

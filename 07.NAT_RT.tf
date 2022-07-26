@@ -7,7 +7,7 @@ resource "aws_route_table" "RT_nat" {
   }
 
   tags = {
-    Name = "minwook-pri-rt"
+    Name = "hamster-pri-rt"
   }
 }
 output "RT_nat_id" {
@@ -15,11 +15,11 @@ output "RT_nat_id" {
   }
 
 resource "aws_route_table_association" "b1" {
-  subnet_id      = aws_subnet.pri1.id
+  subnet_id      = aws_subnet.pri[0].id # pri1
   route_table_id = aws_route_table.RT_nat.id
 } # nat associate
 resource "aws_route_table_association" "b2" {
-  subnet_id      = aws_subnet.pri2.id
+  subnet_id      = aws_subnet.pri[1].id # pri2
   route_table_id = aws_route_table.RT_nat.id
 } # nat associate
 

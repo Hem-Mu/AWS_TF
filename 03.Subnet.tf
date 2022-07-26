@@ -1,58 +1,44 @@
+resource "aws_subnet" "pub" {
+  count = 2
 
-resource "aws_subnet" "pub1" {
   vpc_id     = aws_vpc.ham-vpc.id
-  availability_zone = "ap-northeast-2a"
-  cidr_block = "10.177.10.0/24"
+  availability_zone = var.zones[count.index] # ap-norteast-2a, 2c
+  cidr_block = var.pubcidr[count.index]
 
   tags = {
-    Name = "minwook-pub1"
-    "kubernetes.io/cluster/eks" = "shared"
-    "kubernetes.io/role/elb"    = 1
+    Name = "hamster-pub-${count.index+1}"
   }
 }
-resource "aws_subnet" "pub2" {
+
+resource "aws_subnet" "pri" {
+  count = 2
+
   vpc_id     = aws_vpc.ham-vpc.id
-  availability_zone = "ap-northeast-2c"
-  cidr_block = "10.177.20.0/24"
+  availability_zone = var.zones[count.index] # ap-norteast-2a, 2c
+  cidr_block = var.pricidr[count.index]
 
   tags = {
-    Name = "minwook-pub2"
-    "kubernetes.io/cluster/eks" = "shared"
-    "kubernetes.io/role/elb"    = 1
-  }
-}
-resource "aws_subnet" "pri1" {
-  vpc_id     = aws_vpc.ham-vpc.id
-  availability_zone = "ap-northeast-2a"
-  cidr_block = "10.177.100.0/24"
-
-  tags = {
-    Name = "minwook-pri1"
-    "kubernetes.io/cluster/eks" = "shared"
-    "kubernetes.io/role/elb"    = 1
-  }
-}
-resource "aws_subnet" "pri2" {
-  vpc_id     = aws_vpc.ham-vpc.id
-  availability_zone = "ap-northeast-2c"
-  cidr_block = "10.177.200.0/24"
-
-  tags = {
-    Name = "minwook-pri2"
-    "kubernetes.io/cluster/eks" = "shared"
-    "kubernetes.io/role/elb"    = 1
+    Name = "hamster-pri-${count.index+1}"
   }
 }
 
 output "pub1_id" {
-    value = "${aws_subnet.pub1.id}"
+    value = "${aws_subnet.pub[0].id}"
   }
 output "pub2_id" {
-    value = "${aws_subnet.pub2.id}"
+    value = "${aws_subnet.pub[1].id}"
   }
+
 output "pri1_id" {
-    value = "${aws_subnet.pri1.id}"
+    value = "${aws_subnet.pri[0].id}"
   }
 output "pri2_id" {
-    value = "${aws_subnet.pri2.id}"
+    value = "${aws_subnet.pri[1].id}"
   }
+
+output "pub_all" {
+  value = "${aws_subnet.pub.*.id}"
+}
+output "pri_all" {
+  value = "${aws_subnet.pri.*.id}"
+}

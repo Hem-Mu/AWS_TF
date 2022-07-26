@@ -5,10 +5,10 @@ resource "aws_eip" "nat_ip" {
 }
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat_ip.id
-  subnet_id     = aws_subnet.pub1.id
+  subnet_id     = aws_subnet.pub[0].id #pub1
 
   tags = {
-    Name = "NAT_minwook"
+    Name = "hamster-NAT"
   }
 
   # To ensure proper ordering, it is recommended to add an explicit dependency
