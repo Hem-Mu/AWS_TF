@@ -9,10 +9,11 @@
 
 # git rm --cached <폴더> -r
 ##
+
 provider "aws" {
   access_key = var.access_key
   secret_key = var.secret_key
-  region = "ap-northeast-2"
+  region = var.region
 }
 
 # resource "aws_dynamodb_table" "terraform_locks" {
