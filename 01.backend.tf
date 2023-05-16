@@ -7,11 +7,11 @@ terraform {
 /* terraform {
 
   backend "s3" {
-    bucket         = "art-id-apnortheast2-tfstate" # 고유한 버킷 이름 사용
-    key            = "terrafom/terraform.tfstate" # 원하는 객체 명 사용
+    bucket         = "art-id-apnortheast2-tfstate" # bucket name
+    key            = "terrafom/terraform.tfstate" # tfstate file object name
     region         = "ap-northeast-2"
     encrypt        = true
-    dynamodb_table = "terraform-lock" # 생성 할 DynamoDB 이름
+    dynamodb_table = "terraform-lock" # DDB name
   }
 } */
 

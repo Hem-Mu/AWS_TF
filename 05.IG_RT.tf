@@ -7,7 +7,8 @@ resource "aws_route_table" "RT_igw" {
   }
 
   tags = {
-    Name = "hamster-pub-rt"
+    Name = "minwook-pub-rt"
+    Owner = "minwook.kim"
   }
 }
 output "RT_igw_id" {

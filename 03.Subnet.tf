@@ -6,7 +6,8 @@ resource "aws_subnet" "pub" {
   cidr_block = var.pubcidr[count.index]
 
   tags = {
-    Name = "hamster-pub-${count.index+1}"
+    Name = "minwook.kim-pubSub-${count.index+1}"
+    Owner = "minwook.kim"
   }
 }
 
@@ -18,7 +19,8 @@ resource "aws_subnet" "pri" {
   cidr_block = var.pricidr[count.index]
 
   tags = {
-    Name = "hamster-pri-${count.index+1}"
+    Name = "minwook.kim-priSub-${count.index+1}"
+    Owner = "minwook.kim"
   }
 }
 

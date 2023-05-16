@@ -1,6 +1,7 @@
 resource "aws_vpc" "ham-vpc" {
   tags = {
-    Name = "hamster-vpc"
+    Name = "minwook.kim-vpc"
+    Owner = "minwook.kim"
   }
   cidr_block = var.vpccidr
 }

@@ -7,7 +7,8 @@ resource "aws_route_table" "RT_nat" {
   }
 
   tags = {
-    Name = "hamster-pri-rt"
+    Name = "minwook.kim-pri-rt"
+    Owner = "minwook.kim"
   }
 }
 output "RT_nat_id" {
