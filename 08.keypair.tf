@@ -8,6 +8,6 @@ resource "aws_key_pair" "keypair" {
 }
 
 
-output "keypair" {
+output "keypair_id" {
   value = "${aws_key_pair.keypair.id}"
 }
